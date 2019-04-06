@@ -9,5 +9,9 @@ inputs:
 - name: concourse-tutorial
 
 run:
-  path: ls 
-  args: ['-alR']
+  path: bash
+  args:
+  - "-c"
+  - |
+  ls -al
+  sleep 60
