@@ -13,5 +13,5 @@ run:
   args:
   - "-c"
   - |
-  ls -al
-  sleep 60
+    ls -al
+    sleep 60
