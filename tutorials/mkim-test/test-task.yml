@@ -6,8 +6,8 @@ image_resource:
   source: {repository: ubuntu}
   
 inputs:
-- name: concourse-tutorial
-- name: concourse-tutorial2
+- name: concourse-test-files
+
 
 run:
   path: bash
