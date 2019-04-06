@@ -5,11 +5,19 @@ resources:
   source:
     uri: https://github.com/myminseok/concourse-tutorial.git
     branch: master
+
+- name: concourse-tutorial2
+  type: git
+  source:
+    uri: https://github.com/myminseok/concourse-tutorial.git
+    branch: master
+
 jobs:
 - name: job-hello-world
   public: true
   plan:
   - get: concourse-tutorial
+  - get: concourse-tutorial2
   - task: hello-world
     file: concourse-tutorial/tutorials/mkim-test/test-task.yml
       
