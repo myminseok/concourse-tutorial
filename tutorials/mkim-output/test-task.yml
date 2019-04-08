@@ -23,11 +23,11 @@ run:
   - "-c"
   - |
     pwd
-    find .
+    ls -al
     
     git version
 
-    ## duplicate to prevent conflict
+ 
     git clone concourse-test concourse-test-tmp
     cd concourse-test-tmp
     echo "`date`"> test.txt

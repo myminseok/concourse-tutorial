@@ -18,7 +18,8 @@ jobs:
     file: concourse-test/tutorials/mkim-output/test-task.yml
     params:
       TEST: ((test))
-  - put: push-concourse-test
+  - put: concourse-test
     params:
       repository: concourse-test-tmp
+      merge: true
 
