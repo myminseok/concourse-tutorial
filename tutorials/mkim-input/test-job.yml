@@ -8,12 +8,14 @@ resources:
 
 jobs:
 - name: job-hello-world
-  public: true
+  public: false
   plan:
   - aggregate:
     - get: concourse-tutorial
   - task: hello-world
-    file: concourse-tutorial/tutorials/mkim-test/test-task.yml
+    file: concourse-tutorial/tutorials/mkim-input/test-task.yml
+    params:
+      TEST: ((test))
     input_mapping:
       concourse-test-files: concourse-tutorial
       

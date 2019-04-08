@@ -1,0 +1,38 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: pivotalcf/pivnet-resource
+    tag: latest-final
+  
+inputs:
+- name: concourse-test
+
+outputs:
+- name: concourse-test
+params:
+- TEST:
+
+
+run:
+  path: bash
+  args:
+  - "-c"
+  - |
+    pwd
+    git version
+
+    cd concourse-test
+    echo "`date`"> test.txt
+    ls -al
+    cat test.txt
+    
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    git add .
+    git status
+    git commit -am "test-task.yml `date`"
+
+

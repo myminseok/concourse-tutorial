@@ -1,0 +1,24 @@
+---
+resources:
+- name: concourse-test
+  type: git
+  source:
+    uri: pivotal@10.10.10.199:mkim/concourse-test.git
+    branch: master
+    private_key: ((git_private_key.private_key))
+
+
+jobs:
+- name: job-hello-world
+  public: false
+  plan:
+  - aggregate:
+    - get: concourse-test
+  - task: hello-world
+    file: concourse-test/tutorials/mkim-output/test-task.yml
+    params:
+      TEST: ((test))
+  - put: concourse-test
+    params:
+      repository: concourse-test
+
