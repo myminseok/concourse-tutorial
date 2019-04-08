@@ -18,7 +18,7 @@ jobs:
     file: concourse-test/tutorials/mkim-output/test-task.yml
     params:
       TEST: ((test))
-  - put: concourse-test
+  - put: concourse-test-commit
     params:
       repository: concourse-test
 
