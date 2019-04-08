@@ -11,7 +11,8 @@ inputs:
 - name: concourse-test
 
 outputs:
-- name: concourse-test
+- name: concourse-test-tmp
+
 params:
 - TEST:
 
@@ -22,9 +23,13 @@ run:
   - "-c"
   - |
     pwd
+    find .
+    
     git version
 
-    cd concourse-test
+    ## duplicate to prevent conflict
+    git clone concourse-test concourse-test-tmp
+    cd concourse-test-tmp
     echo "`date`"> test.txt
     ls -al
     cat test.txt
